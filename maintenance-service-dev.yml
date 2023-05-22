@@ -4,7 +4,7 @@ spring:
   datasource:
     username: root
     password: 12345
-    url: jdbc:mysql://localhost:3306/maintenancedb-t1
+    url: jdbc:mysql://192.168.1.102:3306/maintenancedb-t1?createDatabaseIfNotExist=true
   jpa:
     properties:
       hibernate:
@@ -13,7 +13,7 @@ spring:
       ddl-auto: update
   kafka:
     producer:
-      bootstrap-servers: http://localhost:9092
+      bootstrap-servers: http://192.168.1.102:9092
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
   cloud:
