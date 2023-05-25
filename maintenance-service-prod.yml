@@ -6,9 +6,6 @@ spring:
     password: 12345
     url: jdbc:mysql://192.168.1.102:3306/maintenancedb-t1?createDatabaseIfNotExist=true
   jpa:
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.MySQL5Dialect
     hibernate:
       ddl-auto: update
   kafka:
@@ -20,8 +17,6 @@ spring:
     openfeign:
       circuitbreaker:
         enabled: true
-server:
-  port: 0
 eureka:
   client:
     fetch-registry: true
@@ -29,12 +24,13 @@ eureka:
     service-url:
       defaultZone: http://localhost:8761/eureka
   instance:
-    instance-id: ${spring.application.name}:${random.value}
+    instance-id: ${spring.application.name}:${random.value}}
     prefer-ip-address: true
-
+server:
+  port: 0
 resilience4j:
   retry:
     instances:
-      carAvailability:
-        maxAttempts: 5
-        waitDuration: 10s
+      retry-maintenance:
+        max-attempts: 5
+        wait-duration: 30s
