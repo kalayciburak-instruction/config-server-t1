@@ -38,3 +38,6 @@ resilience4j:
       inventory-retry:
         max-attempts: 5
         wait-duration: 10s
+      payment-retry:
+        max-attempts: 10
+        wait-duration: 15s
