@@ -41,3 +41,15 @@ resilience4j:
       payment-retry:
         max-attempts: 10
         wait-duration: 15s
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  tracing:
+    sampling:
+      probability: 1.0
+  zipkin:
+    tracing:
+      endpoint: http://192.168.1.101:9411/api/v2/spans
